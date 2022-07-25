@@ -6,7 +6,6 @@ const FeedbackContext = createContext('FeedbackContext')
 
 export const FeedbackProvider = ({ children }) => {
   const [feedback, setFeedback] = useState(FeedbackData)
-  // eslint-disable-next-line no-unused-vars
   const [feedbackEdit, setFeedbackEdit] = useState({
     item: {},
     edit: false
