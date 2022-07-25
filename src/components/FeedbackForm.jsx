@@ -6,17 +6,23 @@ import RatingSelect from './RatingSelect'
 
 const FeedbackForm = () => {
   const [text, setText] = useState('')
-  const [rating, setRating] = useState(10)
   const [btnDisabled, setBtnDisabled] = useState(true)
   const [message, setMessage] = useState('')
 
-  const { feedbackEdit, addFeedback, updateFeedback } = useContext(FeedbackContext)
+  const {
+    feedbackEdit,
+    addFeedback,
+    updateFeedback,
+    rating,
+    updateRating,
+    clearRating
+  } = useContext(FeedbackContext)
 
   useEffect(() => {
     if (feedbackEdit.edit) {
       setBtnDisabled(false)
       setText(feedbackEdit.item.text)
-      setRating(feedbackEdit.item.rating)
+      updateRating(feedbackEdit.item.rating)
     }
   }, [feedbackEdit])
 
@@ -31,7 +37,6 @@ const FeedbackForm = () => {
       setBtnDisabled(false)
       setMessage(null)
     }
-
     setText(e.target.value)
   }
 
@@ -44,10 +49,15 @@ const FeedbackForm = () => {
         rating
       }
 
-      feedbackEdit.edit
-        ? updateFeedback(feedbackEdit.item.id, newFeedback)
-        : addFeedback(newFeedback)
+      if (feedbackEdit.edit) {
+        updateFeedback(feedbackEdit.item.id, newFeedback)
+        clearRating()
+      } else {
+        addFeedback(newFeedback)
+        clearRating()
+      }
     }
+
     setText('')
   }
 
@@ -55,7 +65,7 @@ const FeedbackForm = () => {
     <Card>
       <form onSubmit={handleSubmit}>
         <h2>How would you rate your service?</h2>
-        <RatingSelect select={rating => setRating(rating)} />
+        <RatingSelect />
         <div className='input-group'>
           <input
             type='text'

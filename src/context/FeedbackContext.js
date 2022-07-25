@@ -11,6 +11,7 @@ export const FeedbackProvider = ({ children }) => {
     item: {},
     edit: false
   })
+  const [rating, setRating] = useState(null)
 
   const addFeedback = newFeedback => {
     newFeedback.id = uuidv4()
@@ -38,15 +39,26 @@ export const FeedbackProvider = ({ children }) => {
     setFeedback(feedback.filter(item => item.id !== id))
   }
 
+  const updateRating = rating => {
+    setRating(rating)
+  }
+
+  const clearRating = () => {
+    setRating(null)
+  }
+
   return (
     <FeedbackContext.Provider
       value={{
         feedback,
         feedbackEdit,
+        rating,
         addFeedback,
         editFeedback,
         updateFeedback,
-        deleteFeedback
+        deleteFeedback,
+        updateRating,
+        clearRating
       }}
     >
       {children}
