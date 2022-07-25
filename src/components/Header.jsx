@@ -11,6 +11,7 @@ const Header = ({ title, bgColor, textColor }) => {
     <header style={headerStyles}>
       <div className='navbar'>
         <svg
+          className='logo'
           width='50'
           height='50'
           viewBox='0 0 320 320'

@@ -31,6 +31,10 @@ ul {
   padding: 0 20px;
 }
 
+.navbar .logo {
+  margin-right: 1rem;
+}
+
 .navbar a {
   color: #ff6a95;
   text-decoration: none;
