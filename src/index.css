@@ -41,12 +41,12 @@ ul {
 }
 
 header {
-  height: 70px;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 30px;
+  margin-bottom: 2rem;
+  padding: 1rem;
 }
 
 .card {
