@@ -8,7 +8,7 @@ const RatingSelect = () => {
     if (feedbackEdit.edit) {
       updateRating(feedbackEdit.item.rating)
     }
-  }, [feedbackEdit, updateRating])
+  }, [feedbackEdit])
 
   const handleChange = e => {
     updateRating(+e.currentTarget.value)
