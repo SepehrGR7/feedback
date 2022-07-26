@@ -19,7 +19,6 @@ export const FeedbackProvider = ({ children }) => {
       )
       const data = await res.json()
 
-      console.log(data)
       setFeedback(data)
       setLoading(false)
     }
