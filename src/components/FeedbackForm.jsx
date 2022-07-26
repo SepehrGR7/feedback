@@ -24,6 +24,7 @@ const FeedbackForm = () => {
       setText(feedbackEdit.item.text)
       updateRating(feedbackEdit.item.rating)
     }
+    // eslint-disable-next-line
   }, [feedbackEdit])
 
   const handleTextChange = e => {
