@@ -8,6 +8,7 @@ const RatingSelect = () => {
     if (feedbackEdit.edit) {
       updateRating(feedbackEdit.item.rating)
     }
+    // eslint-disable-next-line
   }, [feedbackEdit])
 
   const handleChange = e => {
