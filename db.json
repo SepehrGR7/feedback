@@ -2,17 +2,17 @@
   "feedback": [
     {
       "id": "1",
-      "rating": "7",
+      "rating": 7,
       "text": "I really like this product"
     },
     {
       "id": "2",
-      "rating": "5",
+      "rating": 5,
       "text": "Not the greatest but it gets the job done"
     },
     {
       "id": "3",
-      "rating": "10",
+      "rating": 10,
       "text": "Fantastic product, I really like it"
     }
   ]
