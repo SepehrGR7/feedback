@@ -6,28 +6,27 @@ import Spinner from './shared/Spinner'
 
 const FeedbackList = () => {
   const { loading, feedback } = useContext(FeedbackContext)
+
   if (!loading && (!feedback || feedback.length === 0)) {
     return <p>No Feedback Yet</p>
   }
 
-  return (
+  return loading ? (
+    <Spinner />
+  ) : (
     <div className='feedback-list'>
-      {loading ? (
-        <Spinner />
-      ) : (
-        <AnimatePresence>
-          {feedback.map(item => (
-            <motion.div
-              key={item.id}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0, translateY: '-4rem' }}
-            >
-              <FeedbackItem key={item.id} item={item} />
-            </motion.div>
-          ))}
-        </AnimatePresence>
-      )}
+      <AnimatePresence>
+        {feedback.map(item => (
+          <motion.div
+            key={item.id}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0, translateY: '-4rem' }}
+          >
+            <FeedbackItem key={item.id} item={item} />
+          </motion.div>
+        ))}
+      </AnimatePresence>
     </div>
   )
 
